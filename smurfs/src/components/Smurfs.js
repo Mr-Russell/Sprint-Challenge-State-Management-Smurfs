@@ -8,7 +8,7 @@ const Smurfs = props => {
   useEffect(()=>{
     props.fetchSmurfs()
   }, [])
-  console.log('Smurfs:',props.smurfs)
+  console.log('Smurfs:', props.smurfs)
   return(
     <div>
       {props.smurfs.map(item => <SmurfCard smurf={item}/>)}

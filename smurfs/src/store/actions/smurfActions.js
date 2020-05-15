@@ -9,7 +9,7 @@ export const fetchSmurfs = () => {
     dispatch({type: FETCH_SMURFS_START})
     axios.get('http://localhost:3333/smurfs')
       .then(res => {
-        console.log('Fetch Smirfs Result:', res.data)
+        console.log('Fetch Smurfs Result:', res.data)
         dispatch({type: FETCH_SMURFS_SUCCESS, payload: res.data[0]})
       
       })

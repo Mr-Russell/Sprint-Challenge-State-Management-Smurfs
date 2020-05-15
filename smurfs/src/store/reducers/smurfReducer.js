@@ -31,8 +31,8 @@ export const smurfReducer = (state = initialState, action) => {
       return{
         ...state,
         isFetching: false
+      
       }
-
     case POST_SMURF_SUCCESS:
       return{
         ...state,

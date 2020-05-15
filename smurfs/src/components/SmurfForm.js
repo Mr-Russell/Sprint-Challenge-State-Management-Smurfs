@@ -18,7 +18,6 @@ const SmurfForm = props => {
       name: formValues.name,
       age: formValues.age,
       height: formValues.height,
-      id: Date.now(),
     }
   
     props.postSmurf(newSmurf)
