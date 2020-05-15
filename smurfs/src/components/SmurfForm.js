@@ -1,12 +1,49 @@
-import React from 'react'
+import React, {useState} from 'react'
+import {connect} from 'react-redux'
+import {postSmurf} from '../store/actions/smurfActions.js'
 
-const SmurfForm = () => {
+const blankForm = {
+  name: '',
+  age: '',
+  height: ''
+}
+
+const SmurfForm = props => {
+  const [formValues, setFormValues] = useState(blankForm)
+
+  const submitSmurf = e => {
+    e.preventDefault()
+  
+    const newSmurf = {
+      name: formValues.name,
+      age: formValues.age,
+      height: formValues.height,
+      id: Date.now(),
+    }
+  
+    props.postSmurf(newSmurf)
+    setFormValues(blankForm)
+  }
+
+  const inputChange = e => {
+    const name = e.target.name
+    const value = e.target.value
+
+    setFormValues({...formValues, [name]: value})
+  }
+
   return(
-    <form>
-      <input
-        name='newSmurf'
-        type='text'
-      ></input>
+    <form onSubmit={submitSmurf}>
+      <h3>Add A New Smurf!</h3>
+
+      <label>Smurf Name:
+        <input
+          name='name'
+          type='text'
+          value={formValues.name}
+          onChange={inputChange}
+        ></input>
+      </label>
       
       <br />
 
@@ -14,6 +51,8 @@ const SmurfForm = () => {
         <input
           name='age'
           type='number'
+          value={formValues.age}
+          onChange={inputChange}
         ></input>
       </label>
 
@@ -23,10 +62,21 @@ const SmurfForm = () => {
         <input
           name='height'
           type='number'
+          placeholder='In Centimeters (cm)'
+          value={formValues.height}
+          onChange={inputChange}
         ></input>
       </label>
-    </form>
-  )
-}
+     
+      <br />
 
-export default SmurfForm
+      <input
+        name='submit'
+        type='submit'
+        value='Add Smurf!'
+      ></input>
+    </form>
+  );
+};
+
+export default connect(null, {postSmurf})(SmurfForm);

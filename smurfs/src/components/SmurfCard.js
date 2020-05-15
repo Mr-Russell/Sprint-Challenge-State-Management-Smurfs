@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import {fetchSmurfs} from '../store/actions/smurfActions.js'
+import React from 'react';
 
 const SmurfCard = props => {
-  useEffect(()=>{
-    props.fetchSmurfs()
-  }, [])
-
   return(
     <div>
-      <h1>Smurf Card!</h1>
+      <h3>{props.smurf.name}</h3>
+      <p>Age: {props.smurf.age}</p>
+      <p>Height: {props.smurf.height}</p>
     </div>
   )
 }
 
-export default connect(null, {fetchSmurfs})(SmurfCard)
+// const mapStateToProps = state => {
+//   return{
+//     smurf: state.smurfReducer.smurf
+//   }
+// }
+
+export default SmurfCard
