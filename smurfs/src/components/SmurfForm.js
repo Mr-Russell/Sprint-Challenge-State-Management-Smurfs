@@ -20,7 +20,7 @@ const SmurfForm = props => {
       height: formValues.height,
     }
   
-    props.postSmurf(newSmurf)
+    props.postSmurf(formValues)
     setFormValues(blankForm)
   }
 

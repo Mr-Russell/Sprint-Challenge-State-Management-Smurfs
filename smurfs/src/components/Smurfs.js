@@ -9,6 +9,7 @@ const Smurfs = props => {
     props.fetchSmurfs()
   }, [])
   console.log('Smurfs:', props.smurfs)
+  
   return(
     <div>
       {props.smurfs.map(item => <SmurfCard smurf={item}/>)}

@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-export const FETCH_SMURFS_START = 'FETCH_SMIRFS_START'
-export const FETCH_SMURFS_SUCCESS = 'FETCH_SMIRFS_SUCCESS'
-export const FETCH_SMURFS_FAILURE = 'FETCH_SMIRFS_FAILURE'
+export const FETCH_SMURFS_START = 'FETCH_SMURFS_START'
+export const FETCH_SMURFS_SUCCESS = 'FETCH_SMURFS_SUCCESS'
+export const FETCH_SMURFS_FAILURE = 'FETCH_SMURFS_FAILURE'
 
 export const fetchSmurfs = () => {
   return dispatch => {
@@ -33,7 +33,7 @@ export const postSmurf = smurf =>{
         dispatch({type: POST_SMURF_SUCCESS, payload: res.data})
       })
       .catch(err =>{
-        console.log('Psot Smurf Error:', err)
+        console.log('Post Smurf Error:', err)
         dispatch({type: POST_SMURF_FAILURE})
       })
   }
